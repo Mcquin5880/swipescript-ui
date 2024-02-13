@@ -1,0 +1,34 @@
+mat-toolbar {
+  height: auto;
+  align-items: center;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.first-toolbar-link {
+  margin-left: 60px;
+  font-size: 1.1rem;
+}
+
+.toolbar-link {
+  font-size: 1.1rem;
+}
+
+.login-input {
+  margin-top: 20px;
+  margin-right: 15px;
+}
+
+.login-button {
+  font-size: 1.1rem;
+  padding: 10px 30px;
+  margin-right: 40px;
+}
