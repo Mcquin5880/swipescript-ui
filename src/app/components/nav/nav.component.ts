@@ -1,13 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {MatToolbar} from "@angular/material/toolbar";
-import {MatAnchor, MatButton} from "@angular/material/button";
+import {MatAnchor, MatButton, MatIconButton} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {AccountService} from "../../services/account.service";
 import {LoginRequest} from "../../model/LoginRequest";
-import {LoginResponse} from "../../model/LoginResponse";
+import {NgIf} from "@angular/common";
+import {MatIcon} from "@angular/material/icon";
+import {MatMenu, MatMenuItem, MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
 
 @Component({
   selector: 'app-nav',
@@ -19,7 +21,14 @@ import {LoginResponse} from "../../model/LoginResponse";
     MatInputModule,
     MatToolbar,
     MatAnchor,
-    MatButton
+    MatButton,
+    NgIf,
+    MatIconButton,
+    MatIcon,
+    MatMenu,
+    MatMenuTrigger,
+    MatMenuItem,
+    MatMenuModule
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
@@ -27,7 +36,6 @@ import {LoginResponse} from "../../model/LoginResponse";
 export class NavComponent implements OnInit {
 
   loginRequest: LoginRequest = { username: '', password: '' };
-  loginResponse: LoginResponse = { message: '' };
   loggedIn: boolean = false;
 
   constructor(private accountService: AccountService) {}
@@ -43,5 +51,9 @@ export class NavComponent implements OnInit {
       },
       error: error => console.log(error.error.message)
     });
+  }
+
+  logout() {
+    this.loggedIn = false;
   }
 }

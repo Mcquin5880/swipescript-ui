@@ -1,9 +1,16 @@
 mat-toolbar {
-  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px; /* Adjust as needed */
+}
+
+mat-toolbar > * {
+  display: flex;
   align-items: center;
 }
 
-.example-spacer {
+.spacer {
   flex: 1 1 auto;
 }
 
@@ -31,4 +38,10 @@ mat-toolbar {
   font-size: 1.1rem;
   padding: 10px 30px;
   margin-right: 40px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
