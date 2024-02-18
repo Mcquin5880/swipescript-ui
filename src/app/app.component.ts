@@ -15,7 +15,7 @@ import {HomeComponent} from "./components/home/home.component";
 })
 export class AppComponent implements OnInit {
 
-  title = 'flirtmoji-ui';
+  title = 'SwipeScript';
 
   constructor(private accountService: AccountService) {}
 

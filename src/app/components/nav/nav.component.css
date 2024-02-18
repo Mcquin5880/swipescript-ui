@@ -29,6 +29,12 @@ mat-toolbar > * {
   font-size: 1.1rem;
 }
 
+.active-link {
+  background-color: #424242;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
 .login-input {
   margin-top: 20px;
   margin-right: 15px;
