@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import {HttpClient} from "@angular/common/http";
 import {NgForOf} from "@angular/common";
 import {NavComponent} from "./components/nav/nav.component";
 import {AccountService} from "./services/account.service";
@@ -17,19 +16,11 @@ import {HomeComponent} from "./components/home/home.component";
 export class AppComponent implements OnInit {
 
   title = 'flirtmoji-ui';
-  users: any;
 
-  constructor(private http: HttpClient, private accountService: AccountService) {}
+  constructor(private accountService: AccountService) {}
 
   ngOnInit(): void {
-    this.getUsers();
     this.setCurrentUser();
-  }
-
-  getUsers() {
-    this.http.get('http://localhost:8080/api/v1/users').subscribe(data => {
-      this.users = data;
-    });
   }
 
   setCurrentUser() {

@@ -1,4 +1,5 @@
 <div class="home-container">
+
   <mat-card *ngIf="!registerMode" class="welcome-card">
     <mat-card-header>
       <mat-card-title>Find your match</mat-card-title>
@@ -12,5 +13,8 @@
     </mat-card-content>
   </mat-card>
 
-  <!-- Registration form or any other content for registerMode goes here -->
+  <ng-container *ngIf="registerMode">
+    <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+  </ng-container>
+
 </div>
