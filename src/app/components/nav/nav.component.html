@@ -7,22 +7,22 @@
 
   <span class="spacer"></span>
 
-  <div *ngIf="!loggedIn">
+  <div *ngIf="!(accountService.currentUser$ | async)">
     <form (ngSubmit)="login()">
       <mat-form-field appearance="fill" class="login-input">
         <mat-label>Username</mat-label>
-        <input matInput [(ngModel)]="loginRequest.username" name="username">
+        <input matInput [(ngModel)]="model.username" name="username">
       </mat-form-field>
 
-      <mat-form-field appearance="fill" class="login-input" autocomplete="off">
+      <mat-form-field appearance="fill" class="login-input">
         <mat-label>Password</mat-label>
-        <input matInput type="password" [(ngModel)]="loginRequest.password" name="password">
+        <input matInput type="password" [(ngModel)]="model.password" name="password">
       </mat-form-field>
 
       <button mat-raised-button color="primary" class="login-button" type="submit">Login</button>
     </form>
   </div>
-  <div *ngIf="loggedIn" class="user-info">
+  <div *ngIf="accountService.currentUser$ | async" class="user-info">
     <span>Welcome, User!</span>
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>account_circle</mat-icon>

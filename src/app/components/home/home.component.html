@@ -1,0 +1,16 @@
+<div class="home-container">
+  <mat-card *ngIf="!registerMode" class="welcome-card">
+    <mat-card-header>
+      <mat-card-title>Find your match</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="text-center">
+      <p>Come on in to view your matches... all you need to do is sign up!</p>
+      <div class="action-buttons">
+        <button mat-raised-button color="primary" (click)="registerToggle()">Register</button>
+        <button mat-raised-button color="accent">Learn more</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Registration form or any other content for registerMode goes here -->
+</div>
