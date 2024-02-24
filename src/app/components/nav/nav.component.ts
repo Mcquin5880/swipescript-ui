@@ -9,7 +9,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatIcon} from "@angular/material/icon";
 import {MatInput} from "@angular/material/input";
-import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
+import {SnackbarService} from "../../services/snackbar.service";
 
 @Component({
   selector: 'app-nav',
@@ -21,7 +21,6 @@ import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatSnackBarModule,
     MatMenuModule,
     MatIcon,
     MatInput
@@ -33,22 +32,14 @@ export class NavComponent implements OnInit {
 
   model: any = {};
 
-  constructor(public accountService: AccountService, private router: Router, private snackBar: MatSnackBar) {}
+  constructor(public accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {
   }
 
   login() {
     this.accountService.login(this.model).subscribe({
-      next: () => this.router.navigateByUrl('/members'),
-      error: error => {
-        console.log(error);
-        this.snackBar.open('Oops! You\'ve just discovered our \'incorrect username / password\' feature.', 'Close', {
-          duration: 3500,
-          horizontalPosition: 'center',
-          verticalPosition: 'top'
-        })
-      }
+      next: () => this.router.navigateByUrl('/members')
     });
   }
 

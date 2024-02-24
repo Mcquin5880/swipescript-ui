@@ -1,9 +1,12 @@
 <mat-toolbar>
   <span class="toolbar-title">SwipeScript</span>
 
-  <a mat-button routerLink="/members" routerLinkActive="active-link" class="first-toolbar-link">Matches</a>
-  <a mat-button routerLink="/lists" routerLinkActive="active-link" class="toolbar-link">Lists</a>
-  <a mat-button routerLink="/messages" routerLinkActive="active-link" class="toolbar-link">Messages</a>
+  <ng-container *ngIf="accountService.currentUser$ | async">
+    <a mat-button routerLink="/members" routerLinkActive="active-link" class="first-toolbar-link">Matches</a>
+    <a mat-button routerLink="/lists" routerLinkActive="active-link" class="toolbar-link">Lists</a>
+    <a mat-button routerLink="/messages" routerLinkActive="active-link" class="toolbar-link">Messages</a>
+  </ng-container>
+  <a mat-button routerLink="/errors" routerLinkActive="active-link" class="toolbar-link">Errors</a>
 
   <span class="spacer"></span>
 
@@ -22,8 +25,8 @@
       <button mat-raised-button color="primary" class="login-button" type="submit">Login</button>
     </form>
   </div>
-  <div *ngIf="accountService.currentUser$ | async" class="user-info">
-    <span>Welcome, User!</span>
+  <div *ngIf="(accountService.currentUser$ | async) as user" class="user-info">
+    <span>Welcome, {{ user.username | titlecase }}!</span>
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>account_circle</mat-icon>
     </button>
