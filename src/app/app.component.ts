@@ -3,7 +3,7 @@ import {RouterOutlet} from '@angular/router';
 import {NgForOf} from "@angular/common";
 import {NavComponent} from "./components/nav/nav.component";
 import {AccountService} from "./services/account.service";
-import {User} from "./models/User";
+import {User} from "./models/user";
 import {HomeComponent} from "./components/home/home.component";
 
 @Component({

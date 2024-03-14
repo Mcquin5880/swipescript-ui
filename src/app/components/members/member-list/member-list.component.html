@@ -1,0 +1,6 @@
+<mat-grid-list cols="4" rowHeight="350px" gutterSize="10px">
+  <mat-grid-tile *ngFor="let member of members">
+    <app-member-card [member]="member"></app-member-card>
+  </mat-grid-tile>
+</mat-grid-list>
+

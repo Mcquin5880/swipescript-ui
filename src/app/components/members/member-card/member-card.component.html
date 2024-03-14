@@ -1,0 +1,11 @@
+<mat-card *ngIf="member" class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{member.knownAs}}</mat-card-title>
+    <mat-card-subtitle>{{member.city}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{member.photoUrl}}" alt="{{member.knownAs}}">
+  <mat-card-content>
+    <p>{{member.introduction}}</p>
+  </mat-card-content>
+</mat-card>
