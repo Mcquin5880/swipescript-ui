@@ -12,7 +12,6 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
     snackbarService = inject(SnackbarService);
     router = inject(Router);
 
-
   return next(req).pipe(
       catchError((error: HttpErrorResponse) => {
         switch(error.status) {
